@@ -1,0 +1,18 @@
+.car_item_link{
+    text-decoration: none;
+}
+
+.car_item{
+    border: 5px;
+    padding: 5px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    background-color: rgba(248, 249, 252, 0.671);
+    color: rgb(10, 10, 10);
+    transition: 0.2s ease-in;
+}
+
+.car_item:hover{
+    background-color: rgba(248, 249, 252, 0.9);
+}

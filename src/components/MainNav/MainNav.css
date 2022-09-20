@@ -1,0 +1,27 @@
+.main_nav{
+    display: flex;
+    gap: 1em;
+    width: 100vw;
+    /* border-top: 10px solid rgb(71, 152, 238); */
+    position: absolute;
+    top: 0;
+    align-items: center;
+    height: 60px;
+    background: linear-gradient(rgb(246, 242, 242), rgb(235, 230, 235));
+    
+}
+
+.main_nav > div {
+    margin-left: 1em;;
+}
+
+.main_nav > div > a {
+    text-decoration: none;
+    color: var(--main-text-color);
+    font-size: 1.5em;
+    transition: 0.2s ease-in;
+}
+
+.main_nav > div > a:hover{
+    color: var(--main-text-hover);
+}

@@ -2,3 +2,9 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+body{
+  --main-text-color: rgb(24, 53, 88);
+  --main-text-hover: rgb(119, 195, 239);
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
