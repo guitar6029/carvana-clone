@@ -8,3 +8,9 @@ body{
   --main-text-hover: rgb(119, 195, 239);
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+
+.section-column{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1em;
+}

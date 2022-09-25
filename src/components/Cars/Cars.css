@@ -1,0 +1,30 @@
+.filter_options{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    margin: 1em;
+}
+
+.filter_option_container{
+    margin-left: 1em;
+    margin-bottom: 1em;
+    display: flex;
+    flex-direction: column;
+    width: 20vw;
+}
+
+.filter_option_title{
+    margin-bottom: 1em;
+}
+
+.filter_checkbox_container{
+    display: flex;
+    gap: 1em;
+}
+
+
+.price_range_nums, .price_range_title{
+    display: flex;
+    justify-content: space-between;
+}
