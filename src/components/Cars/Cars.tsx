@@ -1,30 +1,25 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import MainNav from "../MainNav/MainNav";
 import SearchBar from "../SearchBar/SearchBar";
 import CarDisplay from "./CarDisplay/CarDisplay";
 import { useSelector, useDispatch } from "react-redux";
-import "./Cars.css";
 import { filterByPrice } from "../../features/carSlice";
+import "./Cars.css";
 
 function Cars() {
-
   const dispatch = useDispatch();
 
-  const {cars, priceRangeValue} = useSelector((store: any) => store.cars)
-  console.log(cars);
-
+  const { cars, priceRangeValue } = useSelector((store: any) => store.cars);
 
   const handlePriceRange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const priceVal = Number(e.target.value);
     dispatch(filterByPrice(priceVal));
     
   };
-
   
-
-   useEffect(() => {
-      
-   }, [cars]);
+  useEffect(() => {
+    //dispatch(updateCars);
+  }, [cars, dispatch]);
 
   return (
     <div className="section_column">
@@ -42,7 +37,6 @@ function Cars() {
           value={priceRangeValue}
           onChange={handlePriceRange}
         />
-
         <div className="price_range_nums">
           <span>$0</span>
           <span>$139000</span>

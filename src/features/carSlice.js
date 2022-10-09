@@ -11,17 +11,18 @@ const carSlice = createSlice({
     name: "cars",
     initialState,
     reducers: {
-        filterByPrice : (state, {payload}) => {
-            const priceVal = payload.price;
+        filterByPrice : (state, action) => {
+            const priceVal = action.payload;
             state.priceRangeValue = priceVal;
-            state.cars.filter(car => car.price <= priceVal)
+            state.cars = cars.filter(car => car.price < state.priceRangeValue)
+            console.log(cars);
         },
     }
 });
 
 
 export const {
-    filterByPrice
+    filterByPrice,
 } = carSlice.actions;
 
 export default carSlice.reducer;

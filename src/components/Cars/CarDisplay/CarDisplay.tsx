@@ -1,22 +1,23 @@
-import {useEffect} from 'react'
-import { Car } from '../../CarType'
-import CarDisplayItem from './CarDisplayItem/CarDisplayItem'
-import './CarDisplay.css';
+import { useEffect } from "react";
+import { Car } from "../../CarType";
+import CarDisplayItem from "./CarDisplayItem/CarDisplayItem";
+import "./CarDisplay.css";
 
 type Props = {
-    cars: Car[]
-}
+  cars: Car[];
+};
 
-function CarDisplay({cars}:Props) {
+function CarDisplay({ cars }: Props) {
+
 
   return (
-    <div className='car_display'>
-      
-      {cars.map(car => (
-        <CarDisplayItem key={car.id} car={car}  />
+    <div className="car_display">
+      {cars.length < 1 && <div><h3>No cars with that price range...</h3></div>}
+      {cars.map((car) => (
+        <CarDisplayItem key={car.id} car={car} />
       ))}
-      </div>
-  )
+    </div>
+  );
 }
 
-export default CarDisplay
+export default CarDisplay;
