@@ -1,3 +1,9 @@
+.filter_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .filter_options{
     display: flex;
     align-items: center;
@@ -11,16 +17,33 @@
     margin-bottom: 1em;
     display: flex;
     flex-direction: column;
-    width: 20vw;
+    width: 300px;
+}
+
+.filter_option_container > input:hover{
+    cursor: pointer;
 }
 
 .filter_option_title{
     margin-bottom: 1em;
 }
 
-.filter_checkbox_container{
+.filter_select_container{
     display: flex;
     gap: 1em;
+}
+
+
+.filter_select_container > select {
+    width: 200px;
+}
+
+.filter_select_container > select:hover{
+    cursor: pointer;
+}
+
+.filter_option_container > select > option:hover{
+    cursor: pointer;
 }
 
 
