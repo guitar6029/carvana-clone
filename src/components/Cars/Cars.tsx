@@ -3,7 +3,7 @@ import MainNav from "../MainNav/MainNav";
 import SearchBar from "../SearchBar/SearchBar";
 import CarDisplay from "./CarDisplay/CarDisplay";
 import { useSelector, useDispatch } from "react-redux";
-import { filterByPrice } from "../../features/carSlice";
+import { filterByPrice, filterByCarType } from "../../features/carSlice";
 import "./Cars.css";
 
 function Cars() {
@@ -16,6 +16,12 @@ function Cars() {
     dispatch(filterByPrice(priceVal));
     
   };
+
+  const handleCarType = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const value = e.target.value;
+    dispatch(filterByCarType(value));
+    console.log(value);
+  }
   
   useEffect(() => {
     //dispatch(updateCars);
@@ -47,30 +53,16 @@ function Cars() {
           <h3>Car Type</h3>
         </div>
         <div className="filter_checkbox_container">
-          <div>
-            <input type="checkbox" name="SUV" id="" />
-            <label htmlFor="SUV">SUV</label>
-          </div>
-          <div>
-            <input type="checkbox" name="Coupes" id="" />
-            <label htmlFor="Coupes">Coupes</label>
-          </div>
-          <div>
-            <input type="checkbox" name="Hatchbacks" id="" />
-            <label htmlFor="Hatchbacks">Hatchbacks</label>
-          </div>
-          <div>
-            <input type="checkbox" name="Convertables" id="" />
-            <label htmlFor="Convertables">Convertables</label>
-          </div>
-          <div>
-            <input type="checkbox" name="Sedans" id="" />
-            <label htmlFor="Sedans">Sedans</label>
-          </div>
-          <div>
-            <input type="checkbox" name="Trucks" id="" />
-            <label htmlFor="Trucks">Trucks</label>
-          </div>
+          <select name="car_type" onChange={handleCarType}>
+            <option selected value="Select Car Type">Select Car Type</option>
+            <option value="all">All Types</option>
+            <option value="Sedan">Sedan</option>
+            <option value="Truck">Truck</option>
+            <option value="Coupe">Coupe</option>
+            <option value="Hatchback">Hatchback</option>
+            <option value="Convetable">Convertable</option>
+            <option value="SUV">SUV</option>
+          </select>
         </div>
       </div>
       <CarDisplay cars={cars} />

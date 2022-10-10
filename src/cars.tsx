@@ -132,5 +132,17 @@ export const cars: Car[] = [
       mileage: "46560",
       image:
         "https://cdnblob.fastly.carvana.io/2001949570/post-large/normalized/zoomcrop/2001949570-edc-02.jpg?v=2022.10.9_23.33.17&width=449",
+    },
+    {
+      id: 12,
+      make: "Tesla",
+      model: "S",
+      tier: "Performance",
+      year: "2020",
+      type: "Sedan",
+      price: 92590,
+      mileage: "17580",
+      image:
+        "https://cdnblob.fastly.carvana.io/2001958869/post-large/normalized/zoomcrop/2001958869-edc-02.jpg?v=2022.10.10_1.4.30&width=449",
     }
   ];
