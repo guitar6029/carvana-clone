@@ -1,13 +1,60 @@
-.car_display_item{
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-    width: 400px;
-    height: 400px;
+.car_display_item {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  width: 400px;
+  min-height: 325px;
+  border-radius: 5px;
+  border: 1px solid rgb(215, 211, 211);
+  transition: all 0.3s ease-in;
+  box-shadow: 2px 11px 5px -4px rgba(61, 60, 60, 0.68);
+  -webkit-box-shadow: 2px 11px 5px -4px rgba(61, 60, 60, 0.68);
+  -moz-box-shadow: 2px 11px 5px -4px rgba(61, 60, 60, 0.68);
+}
+
+.car_display_item:hover {
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+.car_info {
+  padding: 5px;
+}
+
+.car_top_row {
+  display: flex;
+  align-items: baseline;
+  justify-content: baseline;
+  flex-direction: row;
+  gap: 0.3em;
+  margin-bottom: 10px;
+}
+
+.car_middle_row {
+  margin-bottom: 10px;
+  display: flex;
+  align-self: baseline;
+  flex-direction: row;
+  gap: 0.3em;
+}
+
+.car_year,
+.car_make,
+.car_model {
+  font-size: 1.1em;
+}
+
+.car_tier , .car_miles {
+    font-weight: 400;
+    font-style: italic;
+}
+
+.car_price{
+    font-size: 1.5em;
 }
 
 .img_container > img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

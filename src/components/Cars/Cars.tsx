@@ -24,7 +24,7 @@ function Cars() {
   }
   
   useEffect(() => {
-    //dispatch(updateCars);
+    
   }, [cars, dispatch]);
 
   return (
@@ -46,6 +46,16 @@ function Cars() {
         <div className="price_range_nums">
           <span>$0</span>
           <span>$139000</span>
+        </div>
+        <div>
+          <div>
+            <h3>Miles</h3>
+          </div>
+          <input type="range" min="10" max="150000" />
+          <div className="price_range_nums">
+          <span>10</span>
+          <span>150000</span>
+        </div>
         </div>
       </div>
       <div className="filter_option_container">

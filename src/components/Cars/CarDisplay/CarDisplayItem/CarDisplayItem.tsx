@@ -1,21 +1,35 @@
-import { Car } from '../../../CarType'
+import { Car } from "../../../CarType";
+import {BsDot} from 'react-icons/bs';
+import "./CarDisplayItem.css";
 
 type Props = {
-    car : Car;
-}
+  car: Car;
+};
 
-function CarDisplayItem({car} : Props) {
+function CarDisplayItem({ car }: Props) {
   return (
-    <div className='car_display_item'>
-        <div className='img_container'>
-            <img src={car.image} alt="" />
+    <div className="car_display_item">
+      <div className="img_container">
+        <img src={car.image} alt="" />
+      </div>
+      <div className="car_info">
+        <div className="car_top_row">
+          <h3 className="car_year">{car.year}</h3>
+          <h3 className="car_make">{car.make}</h3>
+          <h3 className="car_model">{car.model}</h3>
         </div>
-        <h3>{car.year} {car.make}</h3>
-        <h5>{car.model} {car.mileage} miles</h5>
-        
-        <span>${car.price}</span>
+        <div className="car_middle_row">
+          <h5 className="car_tier">{car.tier}</h5>
+          <BsDot/>
+          <h5 className="car_miles"> {car.mileage.toLocaleString()} miles</h5>
         </div>
-  )
+
+        <div>
+          <h3 className="car_price">${car.price.toLocaleString()}</h3>
+        </div>
+      </div>
+    </div>
+  );
 }
 
-export default CarDisplayItem
+export default CarDisplayItem;
