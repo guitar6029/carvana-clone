@@ -8,41 +8,63 @@ import {
   filterByCarType,
   filterByMiles,
   filterByCarMake,
-  filterBySearch,
 } from "../../features/carSlice";
 import "./Cars.css";
 import { Car } from "../../Car";
+import FilterItemRange from "./FilterItem/FilterItemRange";
+import FilterItemSelect from "./FilterItem/FilterItemSelect";
 
 function Cars() {
   const dispatch = useDispatch();
-
   const { cars, priceRangeValue, carMiles } = useSelector(
     (store: any) => store.cars
   );
 
-  const handlePriceRange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    const priceVal = Number(e.target.value);
-    dispatch(filterByPrice(priceVal));
+  
+  const carMake: string[] = [];
+  const carType: string[] = [];
+  
+  //removes duplicates car maker
+  const uniqueCarMake = cars.filter((car: Car) => {
+    const duplicate = carMake.includes(car.make);
+    if (!duplicate) {
+      carMake.push(car.make);
+      return true;
+    }
+
+    return false;
+  });
+
+  
+  //removes duplicate car models
+  const uniqueCarType = cars.filter((car: Car) => {
+    const duplicate = carType.includes(car.type);
+    if (!duplicate) {
+      carType.push(car.type);
+      return true;
+    }
+
+    return false;
+  });
+  
+
+  const handleChange = (title: string, value: string): void => {
+    if (title === "Price") {
+      dispatch(filterByPrice(Number(value)));
+    } else {
+      dispatch(filterByMiles(value));
+    }
   };
 
-  const handleCarType = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const value = e.target.value;
-    dispatch(filterByCarType(value));
-    console.log(value);
+  const handleSelectorChange = (title: string, val: string) => {
+    if (title === "Car Type") {
+      dispatch(filterByCarType(val));
+    } else {
+      dispatch(filterByCarMake(val));
+    }
   };
 
-  const handleCarMake = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const value = e.target.value;
-    dispatch(filterByCarMake(value));
-  };
-
-  const handleMiles = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    const miles = e.target.value;
-    dispatch(filterByMiles(miles));
-    console.log(miles);
-  };
-
-  useEffect(() => {}, [cars, dispatch]);
+  //useEffect(() => {}, [cars, dispatch]);
 
   return (
     <div className="section_column">
@@ -50,68 +72,38 @@ function Cars() {
       <SearchBar />
 
       <div className="filter_container">
-        <div className="filter_option_container">
-          <div className="filter_option_title">
-            <h3>Price</h3>
-          </div>
-          ${priceRangeValue}
-          <input
-            type="range"
-            min="0"
-            max="139000"
-            value={priceRangeValue}
-            onChange={handlePriceRange}
-          />
-          <div className="price_range_nums">
-            <span>$0</span>
-            <span>$139000</span>
-          </div>
-        </div>
-        <div className="filter_option_container">
-          <div>
-            <h3 className="filter_option_title">Miles</h3>
-          </div>
-          {carMiles}
-          <input
-            type="range"
-            min="10"
-            max="150000"
-            value={carMiles}
-            onChange={handleMiles}
-          />
-          <div className="price_range_nums">
-            <span>10</span>
-            <span>150000</span>
-          </div>
-        </div>
-        <div className="filter_option_container">
-          <div className="filter_option_title">
-            <h3>Car Type</h3>
-          </div>
-          <div className="filter_select_container">
-            <select name="car_type" onChange={handleCarType} defaultValue="all">
-              <option value="Select Car Type">Select Car Type</option>
-              <option value="all">All Types</option>
-              {cars.map((car: Car) => (
-                <option value={car.type}>{car.type}</option>
-              ))}
-            </select>
-          </div>
-        </div>
-        <div className="filter_option_container">
-          <div className="filter_option_title">
-            <h3>Car Make</h3>
-          </div>
-          <div className="filter_select_container">
-            <select name="car_type" onChange={handleCarMake} defaultValue="all">
-              <option value="Select Car Type">Select Car Make</option>
-              <option value="all">All Types</option>
-              {cars.map((car: Car) => (
-                <option value={car.make}>{car.make}</option>
-              ))}
-            </select>
-          </div>
-        </div>
+        <FilterItemRange
+          filterTitle="Price"
+          rangeValue={priceRangeValue}
+          minRangeVal="0"
+          maxRangeVal="139000"
+          handleChange={handleChange}
+        />
+        <FilterItemRange
+          filterTitle="Miles"
+          rangeValue={carMiles}
+          minRangeVal="10"
+          maxRangeVal="150000"
+          handleChange={handleChange}
+        />
+        <FilterItemSelect
+          title="Car Type"
+          selectName="car_type"
+          defaultSelectOptionValue="all"
+          selectCarOptionTitle="Select Car Type"
+          defaultOptionValue="Select Car Type"
+          carArray={carType}
+          handleSelectChange={handleSelectorChange}
+        />
+        <FilterItemSelect
+          title="Car Make"
+          selectName="car_make"
+          defaultSelectOptionValue="all"
+          selectCarOptionTitle="Select Car Make"
+          defaultOptionValue="Select Car Make"
+          carArray={carMake}
+          handleSelectChange={handleSelectorChange}
+        />
       </div>
 
       <CarDisplay cars={cars} />
