@@ -1,5 +1,6 @@
 import { Car } from "../../../CarType";
 import {BsDot} from 'react-icons/bs';
+import { Link } from "react-router-dom";
 import "./CarDisplayItem.css";
 
 type Props = {
@@ -7,11 +8,16 @@ type Props = {
 };
 
 function CarDisplayItem({ car }: Props) {
+
+  const carDetailLink = `/cars/vehicle/${car.id}`;
+
   return (
     <div className="car_display_item">
+      <Link to={carDetailLink}>
       <div className="img_container">
         <img src={car.image} alt="" />
       </div>
+      </Link>
       <div className="car_info">
         <div className="car_top_row">
           <h3 className="car_year">{car.year}</h3>

@@ -13,7 +13,8 @@
 }
 
 .car_display_item:hover {
-  cursor: pointer;
+  
+  scale : 101%;
   opacity: 0.9;
 }
 
@@ -51,6 +52,10 @@
 
 .car_price{
     font-size: 1.5em;
+}
+
+.img_container:hover{
+  cursor: pointer;
 }
 
 .img_container > img {

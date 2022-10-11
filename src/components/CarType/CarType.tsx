@@ -1,25 +1,36 @@
-import React, { useEffect } from "react";
-import MainNav from "../MainNav/MainNav";
-import SearchBar from "../SearchBar/SearchBar";
-import CarDisplay from "./CarDisplay/CarDisplay";
-import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import { Car } from "../../Car";
 import {
-  filterByPrice,
+  filterByCarMake,
   filterByCarType,
   filterByMiles,
-  filterByCarMake,
+  filterByPrice,
+  updateParams,
 } from "../../features/carSlice";
-import "./Cars.css";
-import { Car } from "../../Car";
-import FilterItemRange from "./FilterItem/FilterItemRange";
-import FilterItemSelect from "./FilterItem/FilterItemSelect";
+import CarDisplay from "../Cars/CarDisplay/CarDisplay";
+import FilterItemRange from "../Cars/FilterItem/FilterItemRange";
+import FilterItemSelect from "../Cars/FilterItem/FilterItemSelect";
+import MainNav from "../MainNav/MainNav";
+import SearchBar from "../SearchBar/SearchBar";
 
-function Cars() {
+function CarType() {
+  const { type } = useParams();
+
+  console.log(type);
+  
   const dispatch = useDispatch();
-  const { cars, priceRangeValue, carMiles } = useSelector(
+  const { cars, priceRangeValue, carMiles, urlParams } = useSelector(
     (store: any) => store.cars
-  );
+    );
 
+    useEffect(()=>{
+           dispatch(updateParams(type));
+    }, [urlParams])
+
+    console.log("Params " , urlParams);
+    
   const carMake: string[] = [];
   const carType: string[] = [];
 
@@ -61,8 +72,6 @@ function Cars() {
     }
   };
 
-  //useEffect(() => {}, [cars, dispatch]);
-
   return (
     <div className="section_column">
       <MainNav />
@@ -83,6 +92,8 @@ function Cars() {
           maxRangeVal="150000"
           handleChange={handleChange}
         />
+
+        {/* defaultSelectOptionValue="all" */}
         <FilterItemSelect
           title="Car Type"
           selectName="car_type"
@@ -90,6 +101,7 @@ function Cars() {
           carArray={carType}
           handleSelectChange={handleSelectorChange}
         />
+
         <FilterItemSelect
           title="Car Make"
           selectName="car_make"
@@ -104,4 +116,4 @@ function Cars() {
   );
 }
 
-export default Cars;
+export default CarType;

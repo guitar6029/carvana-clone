@@ -5,14 +5,13 @@ interface props {
     title : string;
     selectName : string;
     defaultSelectOptionValue : string;
-    selectCarOptionTitle : string;
-    defaultOptionValue : string;
     carArray : string[];
     handleSelectChange : (val: string, val2: string) => void;
+    
 }
 
 
-function FilterItemSelect({title, selectName, defaultSelectOptionValue, selectCarOptionTitle, defaultOptionValue ,carArray, handleSelectChange} : props ) {
+function FilterItemSelect({title, selectName, defaultSelectOptionValue, carArray, handleSelectChange} : props ) {
 
     const handleChangeHelper = (e: React.ChangeEvent<HTMLSelectElement>) => {
         const value = e.target.value;
@@ -25,8 +24,7 @@ function FilterItemSelect({title, selectName, defaultSelectOptionValue, selectCa
             <h3>{title}</h3>
           </div>
           <div className="filter_select_container">
-            <select name={selectName} onChange={handleChangeHelper} defaultValue={defaultSelectOptionValue}>
-              <option value={defaultOptionValue}>{selectCarOptionTitle}</option>
+            <select name={selectName} onChange={handleChangeHelper} defaultValue={ defaultSelectOptionValue}>
               <option value="all">All Types</option>
               {carArray.map((car: string) => (
                 <option key={car} value={car}>
