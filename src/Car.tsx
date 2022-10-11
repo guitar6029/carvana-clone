@@ -8,4 +8,5 @@ export  type Car = {
     price: number;
     mileage: string;
     image: string;
+    detailedImage: string;
   };

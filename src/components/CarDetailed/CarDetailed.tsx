@@ -1,53 +1,52 @@
-import React from 'react'
-import { BsDot } from 'react-icons/bs';
-import { useSelector } from 'react-redux';
-import { useNavigate, useParams } from 'react-router-dom'
-import './CarDetailed.css';
-import { Car } from '../../Car';
-import MainNav from '../MainNav/MainNav';
+import React from "react";
+import { useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
+import { Car } from "../../Car";
+import MainNav from "../MainNav/MainNav";
+
+import "./CarDetailed.css";
 
 function CarDetailed() {
+  const { id } = useParams();
+  const { cars } = useSelector((store: any) => store.cars);
+  const navigate = useNavigate();
+  const car = cars.find((car: Car) => {
+    return car.id === Number(id);
+  });
 
-    const {id} = useParams();
-    const { cars } = useSelector((store : any) => store.cars);
-    const navigate = useNavigate();
-    const car = cars.find( (car : Car) => {return car.id === Number(id)} )
+  const handleRedirect = () => {
+    navigate(-1);
+  };
 
+  const handleModal = () => {
+    
+  }
 
-   const handleRedirect = () => {
-       navigate(-1);
-   }
-
+  const styles = {
+    background: `url('https://vexstockimages.fastly.carvana.io/stockimages/2018_FORD_F150%20SUPER%20CAB_XLT%20PICKUP%204D%206%201/2%20FT_WHITE_stock_desktop_1920x1080.png?v=1645550492.220')`,
+    backgroundPosition: "center",
+  };
 
   return (
-    <div className='section-column centered'>
-        <MainNav />
-        <button onClick={handleRedirect}>Go back</button>
-    <div className="car_display_item large">
-      
-      <div className="img_container">
-        <img src={car.image} alt="" />
-      </div>
-      
-      <div className="car_info">
-        <div className="car_top_row">
-          <h3 className="car_year">{car.year}</h3>
-          <h3 className="car_make">{car.make}</h3>
-          <h3 className="car_model">{car.model}</h3>
-        </div>
-        <div className="car_middle_row">
-          <h5 className="car_tier">{car.tier}</h5>
-          <BsDot/>
-          <h5 className="car_miles"> {car.mileage.toLocaleString()} miles</h5>
+    <div className="section-column">
+      <MainNav />
+      <div className="car_information" style={styles}>
+        <div className="info">
+          <h3 className="car_details-top">
+            {car.year} {car.make} {car.model}
+          </h3>
+          <h3 className="car_details-bottom">
+            {car.tier} {Number(car.mileage).toLocaleString()} miles
+          </h3>
         </div>
 
-        <div>
-          <h3 className="car_price">${car.price.toLocaleString()}</h3>
+        <div className="get_started">
+          <h3>${car.price.toLocaleString()}</h3>
+          <button className="test_drive" onClick={handleModal}>Test Drive</button>
         </div>
       </div>
     </div>
-    </div>
-  )
+  );
 }
 
-export default CarDetailed
+export default CarDetailed;

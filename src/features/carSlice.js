@@ -7,8 +7,9 @@ const initialState = {
   carType: null,
   carMiles: 14000,
   carMake: null,
+  isModalDisplaying : false,
   search: "",
-  urlParams : "",
+  urlParams: "",
 };
 
 const carSlice = createSlice({
@@ -19,7 +20,6 @@ const carSlice = createSlice({
       const priceVal = action.payload;
       state.priceRangeValue = priceVal;
       state.cars = cars.filter((car) => car.price < state.priceRangeValue);
-      
     },
     filterByCarType: (state, action) => {
       const carType = action.payload;
@@ -39,9 +39,7 @@ const carSlice = createSlice({
       const carMake = action.payload;
       state.carMake = carMake;
       state.cars =
-        carMake === "all"
-          ? cars
-          : cars.filter((car) => car.make === carMake);
+        carMake === "all" ? cars : cars.filter((car) => car.make === carMake);
     },
     filterBySearch: (state, action) => {
       const value = action.payload;
@@ -57,10 +55,10 @@ const carSlice = createSlice({
                 car.type.toLowerCase().includes(value.toLowerCase())
             );
     },
-    updateParams : (state, action) => {
-          const value = action.payload;
-          state.urlParams = value;
-    }
+    updateParams: (state, action) => {
+      const value = action.payload;
+      state.urlParams = value;
+    },
   },
 });
 

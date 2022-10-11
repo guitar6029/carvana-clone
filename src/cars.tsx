@@ -11,7 +11,8 @@ export const cars: Car[] = [
       price: 20000,
       mileage: "5200",
       image:
-        "https://cdnblob.fastly.carvana.io/2002012462/post-large/normalized/zoomcrop/2002012462-edc-02.jpg?v=2022.9.25_2.2.44&width=449",
+        "../images/toyotaCorolla2022.webp",
+      detailedImage : "../images/22corolla_detailed.png"  
     },
     {
       id: 2,
@@ -23,7 +24,8 @@ export const cars: Car[] = [
       price: 24900,
       mileage: "56200",
       image:
-        "https://cdnblob.fastly.carvana.io/2001595787/post-large/normalized/zoomcrop/2001595787-edc-02.jpg?v=2022.9.25_2.3.15&width=449",
+        "../images/bmwx52013.webp",
+        detailedImage : "https://vexstockimages.fastly.carvana.io/stockimages/2018_FORD_F150%20SUPER%20CAB_XLT%20PICKUP%204D%206%201/2%20FT_WHITE_stock_desktop_1920x1080.png?v=1645550492.220"  
     },
     {
       id: 3,
@@ -35,7 +37,8 @@ export const cars: Car[] = [
       price: 30590,
       mileage: "47338",
       image:
-        "https://cdnblob.fastly.carvana.io/2001959160/post-large/normalized/zoomcrop/2001959160-edc-02.jpg?v=2022.9.25_2.3.39&width=449",
+      "../images/fordf1502018.webp",
+        detailedImage : "https://vexstockimages.fastly.carvana.io/stockimages/2018_FORD_F150%20SUPER%20CAB_XLT%20PICKUP%204D%206%201/2%20FT_WHITE_stock_desktop_1920x1080.png?v=1645550492.220"  
     },
     {
       id: 4,
@@ -47,7 +50,8 @@ export const cars: Car[] = [
       price: 18890,
       mileage: "63000",
       image:
-        "https://cdnblob.fastly.carvana.io/2002037737/post-large/normalized/zoomcrop/2002037737-edc-02.jpg?v=2022.9.25_2.3.55&width=449",
+      "../images/minicooper2013.webp",
+        detailedImage : "https://vexstockimages.fastly.carvana.io/stockimages/2018_FORD_F150%20SUPER%20CAB_XLT%20PICKUP%204D%206%201/2%20FT_WHITE_stock_desktop_1920x1080.png?v=1645550492.220"  
     },
     {
       id: 5,
@@ -59,7 +63,8 @@ export const cars: Car[] = [
       price: 23990,
       mileage: "72000",
       image:
-        "https://cdnblob.fastly.carvana.io/2001929632/post-large/normalized/zoomcrop/2001929632-edc-02.jpg?v=2022.9.25_2.4.21&width=449",
+      "../images/chevroletcamaro2016.webp",
+        detailedImage : "https://vexstockimages.fastly.carvana.io/stockimages/2018_FORD_F150%20SUPER%20CAB_XLT%20PICKUP%204D%206%201/2%20FT_WHITE_stock_desktop_1920x1080.png?v=1645550492.220"  
     },
     {
       id: 6,
@@ -71,7 +76,8 @@ export const cars: Car[] = [
       price: 104990,
       mileage: "3930",
       image:
-        "https://cdnblob.fastly.carvana.io/2001854311/post-large/normalized/zoomcrop/2001854311-edc-02.jpg?v=2022.9.25_2.4.42&width=449",
+      "../images/chevroletcorvette2021.webp",
+        detailedImage : "https://vexstockimages.fastly.carvana.io/stockimages/2018_FORD_F150%20SUPER%20CAB_XLT%20PICKUP%204D%206%201/2%20FT_WHITE_stock_desktop_1920x1080.png?v=1645550492.220"  
     },
     {
       id: 7,
@@ -83,7 +89,8 @@ export const cars: Car[] = [
       price: 24590,
       mileage: "81721",
       image:
-        "https://cdnblob.fastly.carvana.io/2001949167/post-large/normalized/zoomcrop/2001949167-edc-02.jpg?v=2022.10.9_23.23.41&width=449",
+      "../images/fordf1502013.webp",
+        detailedImage : "https://vexstockimages.fastly.carvana.io/stockimages/2018_FORD_F150%20SUPER%20CAB_XLT%20PICKUP%204D%206%201/2%20FT_WHITE_stock_desktop_1920x1080.png?v=1645550492.220"  
     },
     {
       id: 8,
@@ -95,7 +102,8 @@ export const cars: Car[] = [
       price: 26990,
       mileage: "77300",
       image:
-        "https://cdnblob.fastly.carvana.io/2001742006/post-large/normalized/zoomcrop/2001742006-edc-02.jpg?v=2022.10.9_23.23.41&width=449",
+      "../images/chevroletcolorado2015.webp",
+        detailedImage : "https://vexstockimages.fastly.carvana.io/stockimages/2018_FORD_F150%20SUPER%20CAB_XLT%20PICKUP%204D%206%201/2%20FT_WHITE_stock_desktop_1920x1080.png?v=1645550492.220"  
     },
     {
       id: 9,
@@ -107,7 +115,8 @@ export const cars: Car[] = [
       price: 24590,
       mileage: "34581",
       image:
-        "https://cdnblob.fastly.carvana.io/2001897314/post-large/normalized/zoomcrop/2001897314-edc-02.jpg?v=2022.10.9_23.28.37&width=449",
+      "../images/minicooper2015.webp",
+        detailedImage : "https://vexstockimages.fastly.carvana.io/stockimages/2018_FORD_F150%20SUPER%20CAB_XLT%20PICKUP%204D%206%201/2%20FT_WHITE_stock_desktop_1920x1080.png?v=1645550492.220"  
     },
     {
       id: 10,
@@ -119,7 +128,8 @@ export const cars: Car[] = [
       price: 23990,
       mileage: "49488",
       image:
-        "https://cdnblob.fastly.carvana.io/2002039831/post-large/normalized/zoomcrop/2002039831-edc-02.jpg?v=2022.10.9_23.31.16&width=449",
+      "../images/mercedesbenz2014.webp",
+        detailedImage : "https://vexstockimages.fastly.carvana.io/stockimages/2018_FORD_F150%20SUPER%20CAB_XLT%20PICKUP%204D%206%201/2%20FT_WHITE_stock_desktop_1920x1080.png?v=1645550492.220"  
     },
     {
       id: 11,
@@ -131,7 +141,8 @@ export const cars: Car[] = [
       price: 19590,
       mileage: "46560",
       image:
-        "https://cdnblob.fastly.carvana.io/2001949570/post-large/normalized/zoomcrop/2001949570-edc-02.jpg?v=2022.10.9_23.33.17&width=449",
+      "../images/lincolnmks2013.webp",
+        detailedImage : "https://vexstockimages.fastly.carvana.io/stockimages/2018_FORD_F150%20SUPER%20CAB_XLT%20PICKUP%204D%206%201/2%20FT_WHITE_stock_desktop_1920x1080.png?v=1645550492.220"  
     },
     {
       id: 12,
@@ -143,6 +154,7 @@ export const cars: Car[] = [
       price: 92590,
       mileage: "17580",
       image:
-        "https://cdnblob.fastly.carvana.io/2001958869/post-large/normalized/zoomcrop/2001958869-edc-02.jpg?v=2022.10.10_1.4.30&width=449",
+      "../images/teslas2020.webp",
+        detailedImage : "https://vexstockimages.fastly.carvana.io/stockimages/2018_FORD_F150%20SUPER%20CAB_XLT%20PICKUP%204D%206%201/2%20FT_WHITE_stock_desktop_1920x1080.png?v=1645550492.220"  
     }
   ];
