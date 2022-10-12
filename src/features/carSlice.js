@@ -4,10 +4,9 @@ import { cars } from "../cars";
 const initialState = {
   cars: cars,
   priceRangeValue: 39000,
-  carType: null,
+  carType: 'all',
   carMiles: 14000,
   carMake: null,
-  isModalDisplaying : false,
   search: "",
   urlParams: "",
 };
@@ -59,6 +58,7 @@ const carSlice = createSlice({
       const value = action.payload;
       state.urlParams = value;
     },
+   
   },
 });
 

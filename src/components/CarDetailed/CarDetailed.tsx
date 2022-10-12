@@ -1,34 +1,44 @@
-import React from "react";
-import { useSelector } from "react-redux";
+
 import { useNavigate, useParams } from "react-router-dom";
 import { Car } from "../../Car";
+import { useSelector, useDispatch } from "react-redux";
+import { openModal } from "../../features/modalSlice";
 import MainNav from "../MainNav/MainNav";
+import Modal from "../Modal/Modal";
 
 import "./CarDetailed.css";
 
 function CarDetailed() {
   const { id } = useParams();
+  
+  
   const { cars } = useSelector((store: any) => store.cars);
-  const navigate = useNavigate();
+  
+  const isDisplayed  = useSelector((store: any) => store.modal);
+  
+  const dispatch = useDispatch();
+
+  //const navigate = useNavigate();
+
   const car = cars.find((car: Car) => {
     return car.id === Number(id);
   });
 
-  const handleRedirect = () => {
-    navigate(-1);
-  };
+  // const handleRedirect = () => {
+  //   navigate(-1);
+  // };
 
-  const handleModal = () => {
-    
-  }
 
   const styles = {
-    background: `url('https://vexstockimages.fastly.carvana.io/stockimages/2018_FORD_F150%20SUPER%20CAB_XLT%20PICKUP%204D%206%201/2%20FT_WHITE_stock_desktop_1920x1080.png?v=1645550492.220')`,
+    backgroundImage:
+      "url(https://www.cnet.com/a/img/resize/9272c36e934290336ac494c6f869bd308e0e7a8b/hub/2021/01/07/c9a254a8-ed6e-4f57-aa69-030130ca9b51/carcovers-com-platinum-shield-weatherproof-car-cover.jpg?auto=webp&fit=crop&height=528&width=940)",
     backgroundPosition: "center",
+    backgroundSize: "cover",
   };
 
   return (
     <div className="section-column">
+      { (isDisplayed) && <Modal />}
       <MainNav />
       <div className="car_information" style={styles}>
         <div className="info">
@@ -42,7 +52,12 @@ function CarDetailed() {
 
         <div className="get_started">
           <h3>${car.price.toLocaleString()}</h3>
-          <button className="test_drive" onClick={handleModal}>Test Drive</button>
+          {/* <button
+            className="test_drive"
+            onClick={() => dispatch(openModal(action: any))}
+          >
+            Test Drive
+          </button> */}
         </div>
       </div>
     </div>

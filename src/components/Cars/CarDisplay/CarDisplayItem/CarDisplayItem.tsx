@@ -15,7 +15,7 @@ function CarDisplayItem({ car }: Props) {
     <div className="car_display_item">
       <Link to={carDetailLink}>
       <div className="img_container">
-        <img src={car.image} alt="" />
+        <img src={car.image} alt={car.model} />
       </div>
       </Link>
       <div className="car_info">
