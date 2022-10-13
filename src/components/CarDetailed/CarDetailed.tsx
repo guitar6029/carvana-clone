@@ -14,7 +14,7 @@ function CarDetailed() {
   
   const { cars } = useSelector((store: any) => store.cars);
   
-  const isDisplayed  = useSelector((store: any) => store.modal);
+  const {isDisplayed}  = useSelector((store: any) => store.modal);
   
   const dispatch = useDispatch();
 
@@ -36,9 +36,10 @@ function CarDetailed() {
     backgroundSize: "cover",
   };
 
+  console.log("isDisplayed : " ,isDisplayed);
   return (
     <div className="section-column">
-      { (isDisplayed) && <Modal />}
+      { (isDisplayed) && <Modal make={car.make} model={car.model} year={car.year} />}
       <MainNav />
       <div className="car_information" style={styles}>
         <div className="info">
@@ -52,13 +53,14 @@ function CarDetailed() {
 
         <div className="get_started">
           <h3>${car.price.toLocaleString()}</h3>
-          {/* <button
+          <button
             className="test_drive"
-            onClick={() => dispatch(openModal(action: any))}
+            onClick={() => dispatch(openModal(isDisplayed))}
           >
             Test Drive
-          </button> */}
+          </button>
         </div>
+        
       </div>
     </div>
   );
