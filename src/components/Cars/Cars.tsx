@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import MainNav from "../MainNav/MainNav";
 import SearchBar from "../SearchBar/SearchBar";
 import CarDisplay from "./CarDisplay/CarDisplay";

@@ -13,13 +13,31 @@
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  color: var(--main-text-color);
+  z-index: 1;
 }
 
-.car_details-top {
+.car_background{
+  width: 100%;
+  height: 600px;
+  position: absolute;
+  z-index: -1;
+}
+
+.car_background > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.car_details_top {
   font-size: 3em;
+  
 }
 
-
+.car_details_top, .car_details_bottom {
+  transition: all 0.2s ease-in;
+}
 
 .get_started {
   display: flex;
@@ -32,6 +50,14 @@
   font-size: 1.5em;
 }
 
+.navigation_btn {
+  width: 200px;
+  margin-left: 1em;
+  height: 50px;
+  font-family: inherit;
+  border-radius: 10px;
+}
+
 .options {
   display: flex;
   flex-direction: column;
@@ -39,14 +65,6 @@
   align-self: flex-start;
   align-items: center;
   justify-content: center;
-}
-
-.navigation_btn {
-  width: 200px;
-  margin-left: 1em;
-  height: 50px;
-  font-family: inherit;
-  border-radius: 10px;
 }
 
 .test_drive {

@@ -8,4 +8,5 @@ export interface Car  {
     price: string | number;
     mileage: string;
     image: string;
+    detailedImage: string;
 }

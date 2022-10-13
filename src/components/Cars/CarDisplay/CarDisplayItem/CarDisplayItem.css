@@ -39,9 +39,7 @@
   gap: 0.3em;
 }
 
-.car_year,
-.car_make,
-.car_model {
+.car_text_size{
   font-size: 1.1em;
 }
 

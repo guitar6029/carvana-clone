@@ -9,6 +9,11 @@ body {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
+.hover:hover{
+  cursor: pointer;
+  color: var(--main-text-hover);
+}
+
 .large {
   width: 50vw;
 }
