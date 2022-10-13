@@ -15,6 +15,13 @@
     margin-left: 1em;;
 }
 
+.main_nav > .brand > a{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
 .main_nav > div > a {
     text-decoration: none;
     color: var(--main-text-color);
