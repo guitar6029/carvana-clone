@@ -1,12 +1,25 @@
 import React from 'react'
+import Button from '../../../Button/Button';
+import CardDetailedList from './Card/CardDetailedList';
+import CardPrice from './Card/CardPrice';
+import CardTitle from './Card/CardTitle';
 
-function PurchaseOptionCard() {
+interface props {
+  price: number;
+  title: string;
+  currency : string;
+  addList : boolean;
+}
+
+
+function PurchaseOptionCard({price, title, currency, addList}: props) {
   return (
-    <div>
-        <CardTitle title="PAY ONCE" />
-        <CardPrice price="98,600" currency="$"/>
-        <CardDetailedList  />
-        </div>
+    <div className='section-column centered'>
+        <CardTitle title={title} />
+        <CardPrice price={price} currency="$"/>
+        {(addList) && <CardDetailedList price={price} currency="$"  />}
+        <Button title="Start your Purchase" />
+    </div>
   )
 }
 

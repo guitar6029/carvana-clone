@@ -9,19 +9,45 @@ body {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
+.button_type {
+  margin-top: 10px;
+  height: 40px;
+  font-size: 1em;
+  font-family: inherit;
+  color: var(--main-text-color);
+  border: none;
+  outline: none;
+  padding: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease-in;
+}
+
+.button_type:hover {
+  color: var(--main-text-hover);
+  cursor: pointer;
+}
+
+.card_title,
+.card_price {
+  margin-bottom: 1em;
+}
+
+
 .centered {
   margin-top: 7em;
   align-items: center;
   justify-content: center;
 }
 
-.details_title{
+.details_title {
   font-size: 3em;
   text-align: center;
   margin-top: 1em;
 }
 
-.details_container{
+.details_container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -57,23 +83,25 @@ body {
   color: var(--main-text-hover);
 }
 
+.pay_monthly_card{
+  text-align: center;
+}
+
 .section-column {
   display: flex;
   flex-direction: column;
   margin-bottom: 1em;
 }
 
-.section_title{
+.section_title {
   margin-bottom: 1em;
   font-size: 1.7em;
 }
-
-
 
 .transition_effect {
   transition: all 0.3s ease-in;
 }
 
-.underline{
+.underline {
   text-decoration: underline;
 }
