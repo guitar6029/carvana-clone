@@ -67,6 +67,25 @@
   justify-content: center;
 }
 
+.page__details{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  margin-top: 1em;
+  font-size: 1.7em;
+}
+
+.page__details > a {
+  
+  color: var(--main-text-color);
+  transition: all 0.2s ease-in;
+}
+
+.page__details > a:hover{
+  color: var(--main-text-hover);
+}
+
 .test_drive {
   width: 200px;
   height: 50px;

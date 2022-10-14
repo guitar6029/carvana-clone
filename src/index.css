@@ -9,8 +9,39 @@ body {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
-.hover:hover{
+.centered {
+  margin-top: 7em;
+  align-items: center;
+  justify-content: center;
+}
+
+.details_title{
+  font-size: 3em;
+  text-align: center;
+  margin-top: 1em;
+}
+
+.details_container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+}
+
+.hover:hover {
   cursor: pointer;
+  color: var(--main-text-hover);
+}
+
+.highlight_title {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  font-size: 1.5em;
+}
+
+.highlight_title:hover {
   color: var(--main-text-hover);
 }
 
@@ -18,14 +49,31 @@ body {
   width: 50vw;
 }
 
-.centered {
-  margin-top: 7em;
-  align-items: center;
-  justify-content: center;
+.main_text_color {
+  color: var(--main-text-color);
+}
+
+.main_text_color:hover {
+  color: var(--main-text-hover);
 }
 
 .section-column {
   display: flex;
   flex-direction: column;
   margin-bottom: 1em;
+}
+
+.section_title{
+  margin-bottom: 1em;
+  font-size: 1.7em;
+}
+
+
+
+.transition_effect {
+  transition: all 0.3s ease-in;
+}
+
+.underline{
+  text-decoration: underline;
 }
