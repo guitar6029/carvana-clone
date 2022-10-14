@@ -9,4 +9,8 @@ export  type Car = {
     mileage: string;
     image: string;
     detailedImage: string;
+    certifiedPreOwned: boolean;
+    highlights: string[];
+    basicInformation: string[];
+    features: string[];
   };

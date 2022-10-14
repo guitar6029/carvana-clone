@@ -8,6 +8,7 @@ import Modal from "../Modal/Modal";
 import "./CarDetailed.css";
 import CarInformation from "./CarInformation/CarInformation";
 import CarPurchaseOptions from "./CarPurchaseOptions/CarPurchaseOptions";
+import CarHighlights from "./CarHighlights/CarHighlights";
 
 function CarDetailed() {
   const { id } = useParams();
@@ -22,7 +23,7 @@ function CarDetailed() {
   //default background image for now
   const styles = {
     backgroundImage:
-      "url(https://www.cnet.com/a/img/resize/9272c36e934290336ac494c6f869bd308e0e7a8b/hub/2021/01/07/c9a254a8-ed6e-4f57-aa69-030130ca9b51/carcovers-com-platinum-shield-weatherproof-car-cover.jpg?auto=webp&fit=crop&height=528&width=940)",
+      `url('${car.detailedImage}')`,
     backgroundPosition: "center",
     backgroundSize: "cover",
   };
@@ -36,6 +37,13 @@ function CarDetailed() {
       <MainNav />
       <CarInformation styles={styles} make={car.make} mileage={car.mileage} model={car.model} year={car.year} tier={car.tier} price={car.price} />
       <CarPurchaseOptions />
+      <div className="page__details">
+        <a href="#vehicle_details">Vehicle Details</a>
+        <a href="#price_details">Price Details</a>
+        <a href="#owner_details">Owner Reviews</a>
+        <a href="#inspection_details">Inspection</a>
+      </div>
+      <CarHighlights highlights={car.highlights} />
     </div>
   );
 }
