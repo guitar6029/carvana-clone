@@ -32,7 +32,7 @@ function CarDetailed() {
     backgroundSize: "cover",
   };
 
-  console.log("isDisplayed : ", isDisplayed);
+  //console.log("isDisplayed : ", isDisplayed);
   return (
     <div className="section-column">
       {isDisplayed && (
