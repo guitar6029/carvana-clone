@@ -5,7 +5,8 @@
     /* border-top: 10px solid rgb(71, 152, 238); */
     align-items: center;
     height: 60px;
-    background: linear-gradient(rgb(246, 242, 242), rgb(235, 230, 235));
+    /* background: linear-gradient(rgb(246, 242, 242), rgb(235, 230, 235)); */
+    background: var(--main-text-color);
     
 }
 
@@ -22,7 +23,7 @@
 
 .main_nav > div > a {
     text-decoration: none;
-    color: var(--main-text-color);
+    color: #fff;
     font-size: 1.5em;
     transition: 0.2s ease-in;
 }

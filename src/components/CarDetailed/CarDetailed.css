@@ -82,16 +82,14 @@
   margin-top: 1em;
   font-size: 1.7em;
   height: 100px;
+  background: var( --main-text-color);
+  
 }
 
 .page__details > a {
   text-decoration: none;
-  color: var(--main-text-color);
-  transition: all 0.2s ease-in;
-}
-
-.page__details > a:hover{
-  color: var(--main-text-hover);
+  color: #fff;
+  
 }
 
 .test_drive {

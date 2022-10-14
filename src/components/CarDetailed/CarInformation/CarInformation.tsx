@@ -31,7 +31,7 @@ function CarInformation({styles, year, make, model, mileage, tier, price} : prop
     <div className="get_started">
       <h3 className="hover">${price.toLocaleString()}</h3>
       <button
-        className="test_drive"
+        className="button_type"
         onClick={() => dispatch(openModal(isDisplayed))}
       >
         Test Drive

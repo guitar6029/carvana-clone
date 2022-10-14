@@ -3,15 +3,15 @@ import { Car } from "../../Car";
 import { useSelector } from "react-redux";
 import MainNav from "../MainNav/MainNav";
 import Modal from "../Modal/Modal";
-
-import "./CarDetailed.css";
+import {GoPrimitiveDot} from 'react-icons/go';
 import CarInformation from "./CarInformation/CarInformation";
 import CarPurchaseOptions from "./CarPurchaseOptions/CarPurchaseOptions";
 import CarFeatures from "./CarFeatures/CarFeatures";
 import PurchaseOptionCard from "./CarPurchaseOptions/PurchaseOptionCard/PurchaseOptionCard";
 import CardTitle from "./CarPurchaseOptions/PurchaseOptionCard/Card/CardTitle";
-import CardPrice from "./CarPurchaseOptions/PurchaseOptionCard/Card/CardPrice";
 import Button from "../Button/Button";
+import "./CarDetailed.css";
+import OwnerReviews from "../OwnerReviews/OwnerReviews";
 
 function CarDetailed() {
   const { id } = useParams();
@@ -21,6 +21,7 @@ function CarDetailed() {
   const car = cars.find((car: Car) => {
     return car.id === Number(id);
   });
+
 
 
   //default background image for now
@@ -48,14 +49,16 @@ function CarDetailed() {
       </div>
       </div>
       <CarPurchaseOptions />
-      <h3 className="details_title main_text_color" id="vehicle_details">VEHICLE DETAILS</h3>
+      <h3 className="details_title main_text_color" id="vehicle_details"><GoPrimitiveDot /> VEHICLE DETAILS</h3>
 
       <CarFeatures carDetails={car.highlights} title="HIGHLIGHTS" />
       <CarFeatures carDetails={car.basicInformation} title="BASIC INFORMATION" />
       <CarFeatures carDetails={car.features}  title="FEATURES"/>
 
-      <h3 className="details_title main_text_color" id="price_details">PRICE DETAILS</h3>
+      <div className="background_1">
+      <h3 className="details_title alt_text_color" id="price_details"><GoPrimitiveDot />PRICE DETAILS</h3>
       <PurchaseOptionCard title="PAY ONCE" price={car.price} currency="$" addList={true} />
+      
       <div className='section-column centered'>
       <CardTitle title="PAY MONTHLY" />
 
@@ -64,9 +67,14 @@ function CarDetailed() {
             <h3>${ (car.price / 69).toFixed() } - ${ (car.price / 59).toFixed()}</h3>
            </div>
            <span>This is an estimate</span>
+           <div className="pay_month_card_text">
+            <p>Get personalized down/monthly payments within 2 minutes, and no impact to your credit score.</p>
+           </div>
+      </div>
            <Button title="GET YOUR OWN TERMS" />
       </div>
       </div>
+      <OwnerReviews car={car} />
       
     </div>
   );

@@ -3,14 +3,24 @@
   box-sizing: border-box;
 }
 
+.background_1{
+  background: linear-gradient(rgb(136, 200, 243), rgb(142, 188, 226));
+}
+
 body {
   --main-text-color: rgb(24, 53, 88);
   --main-text-hover: rgb(119, 195, 239);
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  background: rgb(255, 254, 254);
+}
+
+.border_1{
+  border-radius: 5px;
+  border: 1p solid black;
 }
 
 .button_type {
-  margin-top: 10px;
+  margin-top: 1em;
   height: 40px;
   font-size: 1em;
   font-family: inherit;
@@ -34,7 +44,6 @@ body {
   margin-bottom: 1em;
 }
 
-
 .centered {
   margin-top: 7em;
   align-items: center;
@@ -45,6 +54,9 @@ body {
   font-size: 3em;
   text-align: center;
   margin-top: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .details_container {
@@ -83,7 +95,24 @@ body {
   color: var(--main-text-hover);
 }
 
-.pay_monthly_card{
+.alt_text_color {
+  color: var(--main-text-color);
+}
+
+.alt_text_color:hover{
+  color: #fff;
+}
+
+.pay_monthly_card {
+  text-align: center;
+}
+
+.pay_month_card_text{
+  margin-top: 1em;
+  display: flex;
+  width: 200px;
+  align-items: center;
+  justify-content: center;
   text-align: center;
 }
 
@@ -91,6 +120,12 @@ body {
   display: flex;
   flex-direction: column;
   margin-bottom: 1em;
+}
+
+.section-row{
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1em;;
 }
 
 .section_title {

@@ -23,4 +23,5 @@ function PurchaseOptionCard({price, title, currency, addList}: props) {
   )
 }
 
+
 export default PurchaseOptionCard
