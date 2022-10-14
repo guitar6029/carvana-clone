@@ -32,6 +32,7 @@ function OwnerReviews({ car }: props) {
     }
   ];
 
+
   return (
     <div className="section-column centered">
       <h3 className="details_title main_text_color" id="owner_details">
@@ -46,6 +47,7 @@ function OwnerReviews({ car }: props) {
                 <OwnerReview owner={owner} />
            ))}
       </div>
+      <button className="button_type">VIEW ALL REVIEWS</button>
 
     </div>
   );
