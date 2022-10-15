@@ -1,5 +1,4 @@
 .car_display{
-    
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

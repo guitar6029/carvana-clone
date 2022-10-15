@@ -4,6 +4,7 @@
     justify-content: center;
     margin-top: 5em;
     width: 100vw;
+    padding: 1em;
 }
 
 .search > input {
@@ -19,7 +20,7 @@
     cursor: pointer;
 }
 
-@media only screen and (max-width: 500px){
+@media only screen and (max-width: 800px){
     
     .filter_options_icon{
         display: block;
@@ -28,7 +29,7 @@
     
     .search {
         align-self: center;
-       width: 100vw;
+        width: 100vw;
     }
 
 

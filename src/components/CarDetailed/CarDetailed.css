@@ -17,7 +17,7 @@
   z-index: 1;
 }
 
-.car_background{
+.car_background {
   width: 100%;
   height: 600px;
   position: absolute;
@@ -32,29 +32,62 @@
 
 .car_details_top {
   font-size: 3em;
-  
 }
 
-.car_details_top, .car_details_bottom {
+.car_details_top,
+.car_details_bottom {
   transition: all 0.2s ease-in;
 }
 
-.detailed_nav_options{
+.detailed_nav_options {
   position: sticky;
   width: 100%;
   top: 0;
   background: rgb(220, 217, 217);
 }
 
+.estimate {
+  margin-top: 1em;
+  font-size: 1em;
+  font-weight: 500;
+  font-style: italic;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.estimate > .question_icon {
+   cursor: pointer;
+   font-size: 1.5em;
+}
+
 .get_started {
   display: flex;
   flex-direction: row;
   gap: 1em;
-  align-items: center;
+  align-items: baseline;
+  justify-content: center;
 }
 
 .get_started > h3 {
   font-size: 1.5em;
+}
+
+
+.loan{
+  position: absolute;
+  background: rgb(50, 96, 155);
+  color: #fff;
+  width: 300px;
+  text-align: left;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.loan > h5 {
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .navigation_btn {
@@ -74,7 +107,7 @@
   justify-content: center;
 }
 
-.page__details{
+.page__details {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -82,14 +115,29 @@
   margin-top: 1em;
   font-size: 1.7em;
   height: 100px;
-  background: var( --main-text-color);
-  
+  background: var(--main-text-color);
 }
 
 .page__details > a {
   text-decoration: none;
   color: #fff;
-  
+}
+
+.pay_monthly_card {
+  text-align: center;
+}
+
+.pay_text_price{
+  font-size: 2em;
+}
+
+
+.pay_month_card_text {
+  margin-top: 1em;
+  width: 200px;
+  text-align: justify;
+  word-break: break-all;
+  line-height: 1.5em;
 }
 
 .test_drive {
@@ -107,4 +155,10 @@
 
 .test_drive:hover {
   cursor: pointer;
+}
+
+@media only screen and (max-width: 800px) {
+  .page__details {
+    font-size: 1em;
+  }
 }

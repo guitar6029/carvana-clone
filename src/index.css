@@ -103,18 +103,6 @@ body {
   color: #fff;
 }
 
-.pay_monthly_card {
-  text-align: center;
-}
-
-.pay_month_card_text {
-  margin-top: 1em;
-  display: flex;
-  width: 200px;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
 
 .section-column {
   display: flex;

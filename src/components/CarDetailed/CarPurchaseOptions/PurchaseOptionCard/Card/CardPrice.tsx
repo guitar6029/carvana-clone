@@ -7,7 +7,7 @@ interface props {
 
 function CardPrice({price, currency}: props) {
   return (
-    <h3 className='card_price'>{currency}{price}</h3>
+    <h3 className='pay_text_price'>{currency}{price}</h3>
   )
 }
 

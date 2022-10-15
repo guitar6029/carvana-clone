@@ -11,7 +11,7 @@ function OwnerReview({owner}:props) {
     <div className='owner_card'>
         <h3 className='owner_name'> <i>{owner.name}</i> from {owner.location}</h3>
         {(owner.verifiedDate) && <span className='owner_verified'>Verified Owneer <BsDot/> {owner.verifiedDate} </span>}
-        <span className='owner_comment'>{owner.comment}</span>
+        <q className='owner_comment'>{owner.comment}</q>
         </div>
   )
 }
