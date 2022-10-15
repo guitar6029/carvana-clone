@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Car } from "../../Car";
@@ -7,13 +6,15 @@ import {
   filterByCarType,
   filterByMiles,
   filterByPrice,
-  updateParams,
+  
 } from "../../features/carSlice";
 import CarDisplay from "../Cars/CarDisplay/CarDisplay";
 import FilterItemRange from "../Cars/FilterItem/FilterItemRange";
 import FilterItemSelect from "../Cars/FilterItem/FilterItemSelect";
 import MainNav from "../MainNav/MainNav";
 import SearchBar from "../SearchBar/SearchBar";
+import {IoMdOptions} from "react-icons/io";
+import FilterModal from "../Modal/FilterModal/FilterModal";
 
 function CarType() {
   const { type } = useParams();
@@ -21,15 +22,10 @@ function CarType() {
   console.log(type);
   
   const dispatch = useDispatch();
-  const { cars, priceRangeValue, carMiles, urlParams } = useSelector(
+  const { cars, priceRangeValue, carMiles} = useSelector(
     (store: any) => store.cars
     );
 
-    // useEffect(()=>{
-    //        dispatch(updateParams(type));
-    // }, [urlParams])
-
-    // console.log("Params " , urlParams);
     
   const carMake: string[] = [];
   const carType: string[] = [];
@@ -76,7 +72,7 @@ function CarType() {
     <div className="section_column">
       <MainNav />
       <SearchBar />
-
+      {/* <FilterModal /> */}
       <div className="filter_container">
         <FilterItemRange
           filterTitle="Price"

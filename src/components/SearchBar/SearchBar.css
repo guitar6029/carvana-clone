@@ -1,6 +1,6 @@
 .search{
     display: flex;
-    align-self: center;
+    align-items: center;
     justify-content: center;
     margin-top: 5em;
     width: 100vw;
@@ -12,4 +12,24 @@
     margin: 1em;
     padding-left: 1em;
     font-family: inherit;
+}
+
+.filter_options_icon{
+    display: none;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 500px){
+    
+    .filter_options_icon{
+        display: block;
+        font-size: 3em;
+    }
+    
+    .search {
+        align-self: center;
+       width: 100vw;
+    }
+
+
 }
