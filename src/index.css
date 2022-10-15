@@ -3,7 +3,7 @@
   box-sizing: border-box;
 }
 
-.background_1{
+.background_1 {
   background: linear-gradient(rgb(136, 200, 243), rgb(142, 188, 226));
 }
 
@@ -14,7 +14,7 @@ body {
   background: rgb(255, 254, 254);
 }
 
-.border_1{
+.border_1 {
   border-radius: 5px;
   border: 1p solid black;
 }
@@ -99,7 +99,7 @@ body {
   color: var(--main-text-color);
 }
 
-.alt_text_color:hover{
+.alt_text_color:hover {
   color: #fff;
 }
 
@@ -107,7 +107,7 @@ body {
   text-align: center;
 }
 
-.pay_month_card_text{
+.pay_month_card_text {
   margin-top: 1em;
   display: flex;
   width: 200px;
@@ -122,10 +122,10 @@ body {
   margin-bottom: 1em;
 }
 
-.section-row{
+.section-row {
   display: flex;
   flex-direction: row;
-  margin-bottom: 1em;;
+  margin-bottom: 1em;
 }
 
 .section_title {

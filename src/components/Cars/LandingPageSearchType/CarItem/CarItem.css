@@ -1,18 +1,36 @@
-.car_item_link{
-    text-decoration: none;
+.car_item_link {
+  text-decoration: none;
+  width: 200px;
+}
+.car_item > img,
+.car_item > h4 {
+  flex: 0.5;
 }
 
-.car_item{
-    border: 5px;
-    padding: 5px;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    background-color: rgba(248, 249, 252, 0.671);
-    color: rgb(10, 10, 10);
-    transition: 0.2s ease-in;
+.car_item {
+  border: 5px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(248, 249, 252, 0.671);
+  color: rgb(10, 10, 10);
+  transition: 0.2s ease-in;
 }
 
-.car_item:hover{
-    background-color: rgba(248, 249, 252, 0.9);
+.car_item:hover {
+  background-color: rgba(248, 249, 252, 0.9);
+}
+
+@media only screen and (max-width: 500px) {
+  .car_item_link {
+    width: 100vw;
+    height: 100px;
+  }
+
+  .car_item > img {
+    width: 100%;
+    height: 100%;
+    object-fit: scale-down;
+  }
 }

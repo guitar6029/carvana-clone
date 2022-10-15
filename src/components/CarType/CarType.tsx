@@ -25,11 +25,11 @@ function CarType() {
     (store: any) => store.cars
     );
 
-    useEffect(()=>{
-           dispatch(updateParams(type));
-    }, [urlParams])
+    // useEffect(()=>{
+    //        dispatch(updateParams(type));
+    // }, [urlParams])
 
-    console.log("Params " , urlParams);
+    // console.log("Params " , urlParams);
     
   const carMake: string[] = [];
   const carType: string[] = [];
