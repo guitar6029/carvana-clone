@@ -10,10 +10,10 @@ import CarFeatures from "./CarFeatures/CarFeatures";
 import PurchaseOptionCard from "./CarPurchaseOptions/PurchaseOptionCard/PurchaseOptionCard";
 import CardTitle from "./CarPurchaseOptions/PurchaseOptionCard/Card/CardTitle";
 import Button from "../Button/Button";
-import "./CarDetailed.css";
 import OwnerReviews from "../OwnerReviews/OwnerReviews";
 import { AiFillQuestionCircle } from "react-icons/ai";
 import { useState } from "react";
+import "./CarDetailed.css";
 
 function CarDetailed() {
   const { id } = useParams();
@@ -41,7 +41,6 @@ function CarDetailed() {
     setBoxDisplay((previousState) => false);
   };
 
-  //console.log("isDisplayed : ", isDisplayed);
   return (
     <div className="section-column">
       {isDisplayed && (
@@ -82,50 +81,57 @@ function CarDetailed() {
           <GoPrimitiveDot />
           PRICE DETAILS
         </h3>
-        <PurchaseOptionCard
-          title="PAY ONCE"
-          price={car.price}
-          currency="$"
-          addList={true}
-        />
 
-        <div className="section-column centered">
-          <CardTitle title="PAY MONTHLY" />
+        <div className="section-row centered margin_t5 payment_default">
+          <div className="section-column centered">
+            <PurchaseOptionCard
+              title="PAY ONCE"
+              price={car.price}
+              currency="$"
+              addList={true}
+            />
+          </div>
 
-          <div className="pay_monthly_card">
-            <div>
-              <h3 className="pay_text_price">
-                ${(car.price / 69).toFixed()} - ${(car.price / 59).toFixed()}
-              </h3>
-            </div>
-            <h3 className="estimate">
-              This is an estimate{" "}
-              <AiFillQuestionCircle
-                className="question_icon"
-                onMouseLeave={hideDialogBox}
-                onMouseOver={showDialogBox}
-              />
-            </h3>
-            {isBoxDisplayed && (
-              <div className="loan">
-                <h5>This range is based on:</h5>
-                <ul>
-                  <li>$0 Cash Down</li>
-                  <li>72 Month Loan</li>
-                  <li>72 Month Loan</li>
-                  <li>8.95% - 14.54% APR</li>
-                  <li>Average - Excellent Credit Score</li>
-                </ul>
+          <div className="section-column centered">
+            <div className="container_main card_default_height">
+              <CardTitle title="PAY MONTHLY" />
+              <div className="pay_monthly_card">
+                <div>
+                  <h3 className="pay_text_price">
+                    ${(car.price / 69).toFixed()} - $
+                    {(car.price / 59).toFixed()}
+                  </h3>
+                </div>
+                <h3 className="estimate">
+                  This is an estimate{" "}
+                  <AiFillQuestionCircle
+                    className="question_icon"
+                    onMouseLeave={hideDialogBox}
+                    onMouseOver={showDialogBox}
+                  />
+                </h3>
+                {isBoxDisplayed && (
+                  <div className="loan">
+                    <h5>This range is based on:</h5>
+                    <ul>
+                      <li>$0 Cash Down</li>
+                      <li>72 Month Loan</li>
+                      <li>72 Month Loan</li>
+                      <li>8.95% - 14.54% APR</li>
+                      <li>Average - Excellent Credit Score</li>
+                    </ul>
+                  </div>
+                )}
+                <div className="pay_month_card_text">
+                  <p>
+                    Get personalized down/monthly payments within 2 minutes, and
+                    no impact to your credit score.
+                  </p>
+                </div>
               </div>
-            )}
-            <div className="pay_month_card_text">
-              <p>
-                Get personalized down/monthly payments within 2 minutes, and no
-                impact to your credit score.
-              </p>
+              <Button title="GET YOUR OWN TERMS" />
             </div>
           </div>
-          <Button title="GET YOUR OWN TERMS" />
         </div>
       </div>
       <OwnerReviews car={car} />

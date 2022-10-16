@@ -8,7 +8,7 @@ interface props {
 
 function CarFeatures({ carDetails, title }: props) {
   return (
-    <div className="section-column centered">
+    <div className="section-column centered margin_t5">
       <h3 className="section_title main_text_color transition_effect">{title}</h3>
       <div className="details_container">
         {carDetails.map((feature, index) => (

@@ -12,12 +12,16 @@ interface props {
 }
 
 
+
+
 function PurchaseOptionCard({price, title, currency, addList}: props) {
+  
+ 
   return (
-    <div className='section-column centered'>
+    <div className='container_main card_default_height'>
         <CardTitle title={title} />
         <CardPrice price={price} currency="$"/>
-        {(addList) && <CardDetailedList price={price} currency="$"  />}
+        {(addList) && <CardDetailedList price={price} currency={currency}  />}
         <Button title="Start your Purchase" />
     </div>
   )

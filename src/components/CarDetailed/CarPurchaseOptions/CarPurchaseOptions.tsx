@@ -12,7 +12,7 @@ function CarPurchaseOptions() {
         <div className="option_container">
             <div className='icons hover'><TbTruckDelivery/></div>
             <div><h3 className='option_title hover'>Delivery Wednesday</h3>
-            <h5>Free shipping within 6 days</h5></div>
+            <h5 className='option_info'>Free shipping within 6 days</h5></div>
         </div>
         </div>
   )

@@ -131,12 +131,15 @@
   font-size: 2em;
 }
 
+.payment_default{
+  gap: 1em;
+}
 
 .pay_month_card_text {
   margin-top: 1em;
-  width: 200px;
+  width: 150px;
   text-align: justify;
-  word-break: break-all;
+  word-wrap: break-word;
   line-height: 1.5em;
 }
 
