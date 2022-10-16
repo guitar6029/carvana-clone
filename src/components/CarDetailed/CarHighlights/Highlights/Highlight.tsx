@@ -8,7 +8,7 @@ interface props {
 function Highlight({highlight}: props) {
   return (
     <div className='highlight'>
-        <h3 className=' main_text_color transition_effect'>{highlight}</h3>
+        <h3 className='main_text_color transition_effect'>{highlight}</h3>
     </div>
       
   ) 

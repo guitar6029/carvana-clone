@@ -1,14 +1,13 @@
-.close{
- position: relative;
- left: 45%;
- font-size: 2em;
- cursor: pointer;
- transition: all 0.3s ease-in;
- 
+.close {
+  position: relative;
+  left: 45%;
+  font-size: 2em;
+  cursor: pointer;
+  transition: all 0.3s ease-in;
 }
 
-.close:hover{
-    color: var(--main-text-hover);
+.close:hover {
+  color: var(--main-text-hover);
 }
 
 .input_container {
@@ -43,9 +42,9 @@
   right: 0;
   width: 500px;
   display: flex;
-  /* align-items: center; */
   flex-direction: column;
   height: 100%;
+
   background: #fff;
 }
 
@@ -63,7 +62,7 @@
   padding-left: 2em;
 }
 
-.review_main_title_container {  
+.review_main_title_container {
   width: 100%;
   text-align: center;
   box-shadow: -1px 7px 7px 0px rgba(157, 157, 157, 0.75);
@@ -82,6 +81,34 @@
   display: flex;
   flex-direction: column;
   margin-top: 1em;
+}
+
+.review_card_container {
+  margin: 1em;
+}
+
+.review_flag{
+  color: var(--main-text-hover);
+}
+
+.review_flag:hover{
+  cursor: pointer;
+  color: var(--main-text-color);
+}
+
+.review_top_section{
+  display: flex;
+  justify-content: space-between;
+}
+
+.reviews_scroll {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1em;
+  height: 300px;
+  max-width: 450px;
+  flex-wrap: nowrap;
+  overflow-y: scroll;
 }
 
 .review_comment {
@@ -113,6 +140,6 @@
   align-items: center;
 }
 
-.sort_by_icon{
-    cursor: pointer;
+.sort_by_icon {
+  cursor: pointer;
 }

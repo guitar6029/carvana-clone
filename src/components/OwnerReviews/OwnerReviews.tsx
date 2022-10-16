@@ -42,7 +42,6 @@ function OwnerReviews({ car }: props) {
     <div className="section-column centered">
       {isOpened && <ReviewsModal car={car} />}
       <h3 className="details_title main_text_color" id="owner_details">
-        <GoPrimitiveDot />
         OWNER REVIEWS
       </h3>
       <h4 className="owner_review_car_title">

@@ -43,7 +43,7 @@
   position: sticky;
   width: 100%;
   top: 0;
-  background: rgb(220, 217, 217);
+  background: var(--main-text-color);
 }
 
 .estimate {
@@ -158,6 +158,14 @@
 
 .test_drive:hover {
   cursor: pointer;
+}
+
+@media only screen and (max-width: 700px){
+  .car_information{
+    flex-direction: column;
+    justify-content:flex-start;
+    
+  }
 }
 
 @media only screen and (max-width: 800px) {

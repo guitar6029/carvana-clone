@@ -66,7 +66,7 @@ function CarDetailed() {
       </div>
       <CarPurchaseOptions />
       <h3 className="details_title main_text_color" id="vehicle_details">
-        <GoPrimitiveDot /> VEHICLE DETAILS
+        VEHICLE DETAILS
       </h3>
 
       <CarFeatures carDetails={car.highlights} title="HIGHLIGHTS" />
@@ -78,7 +78,6 @@ function CarDetailed() {
 
       <div className="background_1">
         <h3 className="details_title alt_text_color" id="price_details">
-          <GoPrimitiveDot />
           PRICE DETAILS
         </h3>
 
