@@ -39,12 +39,33 @@ function ReviewsModal({ car }: props) {
     };
   }, [modalRef, dispatch, isOpened]);
 
+
+  //detects if clicked esc key , closes the modal
+  useEffect(()=>{
+    function handleKeyDown(e: KeyboardEvent) {
+      const val = e.code;
+      // console.log(val);
+      if (val === "Escape"){
+        dispatch(closeModal(isOpened));
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+
+
+  },[])
+
+
   console.log(isOpened);
 
   const handleUserInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     dispatch(filterReviewByUserInput(value));
   };
+
 
   return (
     <div className="modal_container">

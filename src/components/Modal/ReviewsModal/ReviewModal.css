@@ -87,16 +87,16 @@
   margin: 1em;
 }
 
-.review_flag{
+.review_flag {
   color: var(--main-text-hover);
 }
 
-.review_flag:hover{
+.review_flag:hover {
   cursor: pointer;
   color: var(--main-text-color);
 }
 
-.review_top_section{
+.review_top_section {
   display: flex;
   justify-content: space-between;
 }
@@ -106,7 +106,7 @@
   flex-direction: column;
   margin-top: 1em;
   height: 300px;
-  max-width: 450px;
+  max-width: 400px;
   flex-wrap: nowrap;
   overflow-y: scroll;
 }
@@ -142,4 +142,10 @@
 
 .sort_by_icon {
   cursor: pointer;
+}
+
+@media only screen and (max-width: 700px){
+  .review_modal{
+    width: 425px;
+  }
 }

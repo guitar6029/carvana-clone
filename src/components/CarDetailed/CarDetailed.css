@@ -172,4 +172,10 @@
   .page__details {
     font-size: 1em;
   }
+
+  .get_started{
+    margin-top: 1em;
+    flex-direction: column;
+    justify-content:flex-start;
+  }
 }

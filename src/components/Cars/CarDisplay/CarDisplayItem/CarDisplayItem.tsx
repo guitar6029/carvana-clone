@@ -27,7 +27,7 @@ function CarDisplayItem({ car }: Props) {
         <div className="car_middle_row hover">
           <h5 className="car_tier">{car.tier}</h5>
           <BsDot/>
-          <h5 className="car_miles"> {car.mileage.toLocaleString()} miles</h5>
+          <h5 className="car_miles"> {Number(car.mileage).toLocaleString()} miles</h5>
         </div>
 
         <div>
