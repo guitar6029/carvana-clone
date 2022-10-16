@@ -12,7 +12,7 @@ interface props {
 }
 
 function ReviewsModal({ car }: props) {
-  const { reviews, isOpened } = useSelector((store: any) => store.reviews);
+  const { reviews, isOpened, inputValue } = useSelector((store: any) => store.reviews);
   const dispatch = useDispatch();
 
   const modalRef = useRef<any>(null);
@@ -64,7 +64,7 @@ function ReviewsModal({ car }: props) {
           </h3>
         </div>
         <div className="review_total padding_left">
-          <h4>{reviews.length} REVIEWS</h4>
+          {(inputValue.length <= 0) ? <h4>{reviews.length} REVIEWS</h4> : <h4>{reviews.length} REVIEWS SHOWING "{inputValue}"</h4>}
           <h3 className="sort_by">
             SORT BY <AiFillCaretDown className="sort_by_icon" />
           </h3>

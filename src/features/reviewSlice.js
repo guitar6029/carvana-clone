@@ -6,7 +6,7 @@ const initialState = {
   isOpened: false,
   clickedOnCloseIcon: false,
   inputValue: "",
-  isTyping: false,
+  
 };
 
 const reviewSlice = createSlice({
@@ -23,8 +23,9 @@ const reviewSlice = createSlice({
       const value = action.payload;
       state.inputValue = value;
           state.reviews = reviews.filter(user => {
-            let reg2 = new RegExp( state.inputValue, 'ig');
-            return user.comment.match(reg2);
+            let regx = new RegExp( state.inputValue, 'ig');
+            return user.comment.match(regx);
+          
        });
       
     },
