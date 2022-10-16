@@ -13,13 +13,11 @@ import FilterItemRange from "../Cars/FilterItem/FilterItemRange";
 import FilterItemSelect from "../Cars/FilterItem/FilterItemSelect";
 import MainNav from "../MainNav/MainNav";
 import SearchBar from "../SearchBar/SearchBar";
-import {IoMdOptions} from "react-icons/io";
-import FilterModal from "../Modal/FilterModal/FilterModal";
 
 function CarType() {
   const { type } = useParams();
 
-  console.log(type);
+ 
   
   const dispatch = useDispatch();
   const { cars, priceRangeValue, carMiles} = useSelector(

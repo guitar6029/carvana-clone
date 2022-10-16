@@ -15,8 +15,7 @@ const modalSlice = createSlice({
      */
     openModal: (state, action) => {
       state.isDisplayed = !state.isDisplayed;
-      console.log("clicked");
-      console.log(state.isDisplayed);
+     
     },
     /*******
      *

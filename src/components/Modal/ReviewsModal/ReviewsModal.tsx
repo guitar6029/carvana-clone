@@ -13,7 +13,9 @@ import {
   filterReviewByUserInput,
   clearReviewUserInput,
   displayFlagReviewModal,
-  hideFlagReviewModal
+  hideFlagReviewModal,
+  flagThisReviewComment,
+  getCommentID,
 } from "../../../features/reviewSlice";
 import "./ReviewModal.css";
 import { BsFlag } from "react-icons/bs";
@@ -23,22 +25,36 @@ interface props {
 }
 
 function ReviewsModal({ car }: props) {
-  const { reviews, isOpened, inputValue, clickedOnFlagReview } = useSelector(
-    (store: any) => store.reviews
-  );
+  const {
+    reviews,
+    isOpened,
+    inputValue,
+    clickedOnFlagReview,
+    flaggedThisReview,
+    commentID,
+  } = useSelector((store: any) => store.reviews);
   const dispatch = useDispatch();
 
   const modalRef = useRef<any>(null);
 
   //detects if clicked outside the review box to close the modal
 
-  useEffect(() => {
-         
-    function handleClickedOutside(event: Event) {
 
+  useEffect(() => {
+
+  }, [reviews])
+
+
+  useEffect(() => {
+    function handleClickedOutside(event: Event) {
       //if click is outside the review modal container and the flag review modal is not opened
-      if (modalRef.current && !modalRef.current.contains(event.target) && !clickedOnFlagReview) {
+      if (
+        modalRef.current &&
+        !modalRef.current.contains(event.target) &&
+        !clickedOnFlagReview
+      ) {
         dispatch(closeModal(isOpened));
+        dispatch(clearReviewUserInput());
       }
     }
 
@@ -53,10 +69,10 @@ function ReviewsModal({ car }: props) {
   useEffect(() => {
     function handleKeyDown(e: KeyboardEvent) {
       const val = e.code;
-      // console.log(val);
       if (val === "Escape") {
         dispatch(closeModal(isOpened));
         dispatch(hideFlagReviewModal());
+        dispatch(clearReviewUserInput());
       }
     }
 
@@ -66,97 +82,138 @@ function ReviewsModal({ car }: props) {
     };
   }, []);
 
-  console.log(isOpened);
+
 
   const handleUserInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     dispatch(filterReviewByUserInput(value));
   };
 
-  const handleFlagReview = () => {
-       dispatch(displayFlagReviewModal());
+  const handleFlagReview = (e: number) => {
+    const val = e;
+    dispatch(getCommentID(val))
+    dispatch(displayFlagReviewModal());
+    
+  };
+
+  const handleOnCloseIconModal = () => {
+    dispatch(closeModal(isOpened));
+    dispatch(hideFlagReviewModal());
+    dispatch(clearReviewUserInput());
   }
 
   return (
     <>
-    {(clickedOnFlagReview) && 
-    <div className="flag_review_modal">
-      <h3>Are you sure you want to flag this review as inappropriate?</h3>
-      <div className="flag_review_buttons">
-        <button className="button_type">CONTINUE</button>
-        <button className="button_type" onClick={() => dispatch(hideFlagReviewModal())}>CANCEL</button>
-      </div>
-    </div>}
-    <div className="modal_container">
-     
-      <div ref={modalRef} className="review_modal">
-        <div className="review_main_title_container">
-          <AiFillCloseCircle
-            className="close"
-            onClick={() => dispatch(closeModal(isOpened))}
-          />
-          <h3 className="review_main_title">
-            Owner Reviews ({reviews.length})
-          </h3>
+      {clickedOnFlagReview && (
+        <div className="flag_review_modal">
+          <h3>Are you sure you want to flag this review as inappropriate?</h3>
+          <div className="flag_review_buttons">
+            <button
+              className="button_type"
+              onClick={() => dispatch(flagThisReviewComment())}
+            >
+              CONTINUE
+            </button>
+            <button
+              className="button_type"
+              onClick={() => dispatch(hideFlagReviewModal())}
+            >
+              CANCEL
+            </button>
+          </div>
         </div>
-        <div className="input_container">
-          <BiSearchAlt2 id="search_icon" />
-          <input
-            type="text"
-            value={inputValue}
-            placeholder="Search Reviews"
-            onChange={handleUserInput}
+      )}
+      <div className="modal_container">
+        <div ref={modalRef} className="review_modal">
+          <div className="review_main_title_container">
+            <AiFillCloseCircle
+              className="close"
+              onClick={handleOnCloseIconModal}
             />
-          <AiOutlineClose
-            className={inputValue <= 0 ? "hidden" : "clear_review_modal_input"}
-            onClick={() => dispatch(clearReviewUserInput())}
+            <h3 className="review_main_title">
+              Owner Reviews ({reviews.length})
+            </h3>
+          </div>
+          <div className="input_container">
+            <BiSearchAlt2 id="search_icon" />
+            <input
+              type="text"
+              value={inputValue}
+              placeholder="Search Reviews"
+              onChange={handleUserInput}
             />
-        </div>
-        <div className="review_car_name padding_left">
-          <h3>
-            {car.year} {car.make} {car.model}
-          </h3>
-        </div>
-        <div className="review_total padding_left">
-          {inputValue.length <= 0 ? (
-            <h4>{reviews.length} REVIEWS</h4>
-          ) : (
-            <h4>
-              {reviews.length} REVIEWS SHOWING "{inputValue}"
-            </h4>
-          )}
-          {/* <h3 className="sort_by">
+            <AiOutlineClose
+              className={
+                inputValue <= 0 ? "hidden" : "clear_review_modal_input"
+              }
+              onClick={() => dispatch(clearReviewUserInput())}
+            />
+          </div>
+          <div className="review_car_name padding_left">
+            <h3>
+              {car.year} {car.make} {car.model}
+            </h3>
+          </div>
+          <div className="review_total padding_left">
+            {inputValue.length <= 0 ? (
+              <h4>{reviews.length} REVIEWS</h4>
+            ) : (
+              <h4>
+                {reviews.length} REVIEWS SHOWING "{inputValue}"
+              </h4>
+            )}
+            {/* <h3 className="sort_by">
             SORT BY <AiFillCaretDown className="sort_by_icon" />
           </h3> */}
-        </div>
-        <div className="reviews_scroll padding_left">
-          {reviews.map((review: Owner, index: number) => (
-            <div key={index} className="review_card_container">
-              <div className="review_top_section">
-                <div>
-                  <span className="review_name">
-                    {review.name} from{" "}
-                    <span className="review_location">{review.location}</span>
-                  </span>
-                </div>
-                <div className="flag_review">
-                  <BsFlag className="review_flag transition_effect" onClick={handleFlagReview} />
-                  <h5>Flag Review</h5>
-                </div>
-              </div>
+          </div>
+          <div className="reviews_scroll padding_left">
+            {reviews.map((review: Owner) => (
+              <div key={review.id} className="review_card_container">
+                <div className="review_top_section">
+                  <div>
+                    <span className="review_name">
+                      {review.name} from 
+                      <span className="review_location">{review.location}</span>
+                    </span>
+                  </div>
 
-              <div className="review_verified_date">
-                <span>{review.verifiedDate}</span>
+                  {/* shows unflagged reviews  */}
+
+                  <div className="flag_review">
+                      <BsFlag
+                        className="review_flag transition_effect"
+                        onClick={() => handleFlagReview(review.id)}
+                      />
+                      <h5>Flag Review</h5>
+                    </div>
+
+                  {/* { (flaggedThisReview) ? (
+                    <div className="flag_review">
+                      <h5>Flagged Comment</h5>
+                    </div>
+                  ) : (
+                    <div className="flag_review">
+                      <BsFlag
+                        className="review_flag transition_effect"
+                        onClick={() => handleFlagReview(review.id)}
+                      />
+                      <h5>Flag Review</h5>
+                    </div>
+                  )} */}
+                </div>
+
+                <div className="review_verified_date">
+                  <span>{review.verifiedDate}</span>
+                </div>
+                <div className="review_comment">
+                  <q>{review.comment}</q>
+                </div>
               </div>
-              <div className="review_comment">
-                <q>{review.comment}</q>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
-    </div>
-            </>
+    </>
   );
 }
 

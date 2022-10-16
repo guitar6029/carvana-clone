@@ -17,26 +17,30 @@ function OwnerReviews({ car }: props) {
 
   const owners: Owner[] = [
     {
+      id: 6,
       name: "Robert M.",
       location: "PA",
       verifiedDate: "01/2018",
       comment: "A great car for the price",
+     
     },
     {
+      id: 7,
       name: "Alexa B.",
       location: "FL",
       verifiedDate: "05/2022",
       comment: "I enjoy the features of the car",
+     
     },
     {
+      id: 8,
       name: "Bobby S.",
       location: "MA",
       verifiedDate: "04/2019",
       comment: "The interior design is awsome",
+     
     },
   ];
-
-
 
   return (
     <div className="section-column centered">

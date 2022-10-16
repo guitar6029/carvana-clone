@@ -7,7 +7,8 @@ const initialState = {
   clickedOnCloseIcon: false,
   inputValue: "",
   clickedOnFlagReview: false,
-  
+  flaggedThisReview: false,
+  commentID: null,
 };
 
 const reviewSlice = createSlice({
@@ -26,27 +27,43 @@ const reviewSlice = createSlice({
     filterReviewByUserInput: (state, action) => {
       const value = action.payload;
       state.inputValue = value;
-          state.reviews = reviews.filter(user => {
-            let regx = new RegExp( state.inputValue, 'ig');
-            return user.comment.match(regx);
-          
-       });
-      
+      state.reviews = reviews.filter((user) => {
+        let regx = new RegExp(state.inputValue, "ig");
+        return user.comment.match(regx);
+      });
     },
     clearReviewUserInput: (state) => {
       state.inputValue = "";
-      state.reviews = reviews.map(review => review);
+      state.reviews = reviews.map((review) => review);
     },
     displayFlagReviewModal: (state) => {
       state.clickedOnFlagReview = true;
     },
     hideFlagReviewModal: (state) => {
       state.clickedOnFlagReview = false;
-    }
+    },
+    flagThisReviewComment: (state) => {
+      state.flaggedThisReview = true;
+      state.clickedOnFlagReview = false;
+      state.reviews = state.reviews.filter(review => review.id !== state.commentID);
+      
+    },
+    getCommentID: (state, action) => {
+      const _commentID = action.payload;
+      state.commentID = _commentID;
+    },
   },
 });
 
-export const { openModal, closeModal, filterReviewByUserInput, clearReviewUserInput, displayFlagReviewModal, hideFlagReviewModal } =
-  reviewSlice.actions;
+export const {
+  openModal,
+  closeModal,
+  getCommentID,
+  filterReviewByUserInput,
+  clearReviewUserInput,
+  displayFlagReviewModal,
+  hideFlagReviewModal,
+  flagThisReviewComment,
+} = reviewSlice.actions;
 
 export default reviewSlice.reducer;
