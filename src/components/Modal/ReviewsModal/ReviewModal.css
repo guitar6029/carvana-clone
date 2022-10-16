@@ -10,6 +10,53 @@
   color: var(--main-text-hover);
 }
 
+.clear_review_modal_input{
+  position: relative;
+  right: 40px;
+  font-size: 1em;
+  transition: all 0.2s ease-in;
+}
+
+.clear_review_modal_input:hover{
+  cursor: pointer;
+  scale: 1.7;
+}
+
+.flag_review{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.flag_review > h5 {
+  color: var(--main-text-hover);
+}
+
+.flag_review_buttons{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  gap: 1em;
+  align-items: center;
+  justify-content: center;
+}
+
+.flag_review_modal{
+  position: absolute;
+  width: 300px;
+  height: 200px;
+  margin: 4em auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+  padding: 1em;
+  background: var(--main-text-color);
+  color: #fff;
+}
+
+
 .input_container {
   margin-top: 1.5em;
   margin-bottom: 1em;

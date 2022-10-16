@@ -93,6 +93,10 @@ body {
   gap: 1em;
 }
 
+.hidden{
+  display: none;
+}
+
 .hover:hover {
   cursor: pointer;
   color: var(--main-text-hover);
