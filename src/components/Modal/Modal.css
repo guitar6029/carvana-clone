@@ -1,6 +1,6 @@
-.buttons{
-    display: flex;
-    gap: 1em;
+.buttons {
+  display: flex;
+  gap: 1em;
 }
 
 .modal_container {
@@ -19,42 +19,70 @@
 .test_drive_form {
   margin: 0 auto;
   display: flex;
-  padding: 1em;
+  padding: 1em 1em 3em 1em;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 500px;
-  height: 300px;
+  width: 600px;
+  min-height: 300px;
   gap: 1.5em;
-  border-radius: 5px;
-  background-color: rgb(240, 233, 233);
-  border: 2px solid rgb(235, 232, 232);
-  color: rgb(12, 11, 11);
+  border-radius: 10px;
+  background-color: var(--main-text-color);
+  color: #fff;
 }
 
-.test_drive_form > .buttons > button {
-      width: 150px;
-      height: 40px;
-      text-align: center;
+.test_drive_form_main_title {
+  font-size: 1.5em;
 }
 
-.test_drive_form > .buttons > button:hover{
-   cursor: pointer;
+.test_drive_close_icon {
+  position: relative;
+  left: 50%;
+  bottom: 20px;
+  font-size: 3em;
+  color: #fff;
+  transition: all 0.3s ease-in;
 }
 
-.input_container {
+.test_drive_close_icon:hover {
+  cursor: pointer;
+  transform: rotate(180deg);
+  color: var(--main-text-hover);
+}
+
+.test_drive_form > h3 {
+  text-align: center;
+}
+
+.test_drive_form_icon {
+  font-size: 5em;
+  transition: 0.2s ease-in;
+}
+
+.test_drive_form_icon:hover {
+  color: var(--main-text-hover);
+}
+
+.test_drive_input_container {
   display: flex;
   align-items: center;
   gap: 1em;
-  
 }
 
-.input_container > label, .input_container > input {
-    width: 200px;
+.test_drive_input_container > label {
+  width: 150px;
 }
 
-.input_container > input {
-  padding-left: 2px;
+.test_drive_input_container > input {
+  padding-left: 10px;
   border-radius: 5px;
   font-family: inherit;
+  width: 100%;
+  height: 40px;
+}
+
+@media only screen and (max-width: 600px) {
+  .test_drive_form {
+    width: 100vw;
+  }
 }

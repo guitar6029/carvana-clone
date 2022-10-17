@@ -39,12 +39,6 @@ function ReviewsModal({ car }: props) {
 
   //detects if clicked outside the review box to close the modal
 
-
-  useEffect(() => {
-
-  }, [reviews])
-
-
   useEffect(() => {
     function handleClickedOutside(event: Event) {
       //if click is outside the review modal container and the flag review modal is not opened

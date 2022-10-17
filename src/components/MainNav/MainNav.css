@@ -2,11 +2,11 @@
     display: flex;
     gap: 1em;
     width: 100vw;
-    /* border-top: 10px solid rgb(71, 152, 238); */
     align-items: center;
     height: 60px;
-    /* background: linear-gradient(rgb(246, 242, 242), rgb(235, 230, 235)); */
     background: var(--main-text-color);
+    /* border-top: 10px solid rgb(71, 152, 238); */
+    /* background: linear-gradient(rgb(246, 242, 242), rgb(235, 230, 235)); */
     
 }
 
